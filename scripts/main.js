@@ -13,3 +13,8 @@ $(document).ready(function() {
     } );
 } );
 
+function saveArticle () {
+    dataSet.push([ "Tiger Nixon", "System Architect", "Edinburgh", "5421", "2011/04/25", "$320,800" ])
+  };
+
+  saveArticle()
