@@ -1,4 +1,9 @@
+//had to instantiate a global variable to define and access from different scopes
+
+var row
+
 //initialize tables| defining column titless and pointing to dataSet as data source
+
 function buildTable(){
     $(document).ready(function(){
         $('#example').DataTable( {
@@ -6,7 +11,7 @@ function buildTable(){
             buttons: {
                 buttons: [
                     {
-                        text: 'Alert',
+                        text: 'Add Data',
                         action: function ( e, dt, node, config ) {
                             $('#DescModalAdd').modal("show");
                             console.log('gttgtgt');
@@ -27,15 +32,10 @@ function buildTable(){
                 {
                     sortable: false,
                     "render": function ( data, type, full, meta ) {
-                        return '<a id='+meta.row+' class="btn btn-primary btn-sm edit" role="button">Edit</a> <a id='+meta.row+' class="btn btn-primary btn-sm remove" role="button">Delete</a>';
+                        return '<a id='+meta.row+' class="btn btn-primary btn-sm edit" role="button">Edit</a> <a id='+meta.row+' class="btn btn-danger btn-sm remove" role="button">Delete</a>';
                     }
                 },
-                
-                
-                // {
-                //     "data": null,
-                //     "defaultContent": '<button class="edit">Edit</button> <button class="remove">Delete</button>'
-                // },
+               
             ]
         } );
         //fx to delete row
@@ -53,6 +53,11 @@ function buildTable(){
             var elements = document.getElementById("#edit-form").elements;
             let valsa = table.row( $(this).parents('tr') ).data()
             let rowIndex = (table.row( $(this).parents('tr') )[0]);
+            console.log('notme' + rowIndex);
+            console.log("me!" + $(this).attr('id'));
+            row = $(this).attr('id')
+            
+
             for (var i = 0; i<6 ; i++) {
                 elements[i].value = valsa[i] 
             }
@@ -89,14 +94,19 @@ function addData() {
     }
     dataSet.push(inputArray)
     resetTable()
+    $('#DescModalAdd').modal("hide");
 };
 
-function editData(){
+function editData(row){
     var table = $('#example').DataTable();
-    table.row($(this).attr('rowindex')).data([$("#type").val(), $("#amount").val()]).draw();
+    
+    table.row(row).data([$("#name1").val(), $("#position1").val(),$("#office1").val(), $("#extn1").val(),$("#start-date1").val(), $("#salary1").val()]);
+    $('#DescModalEdit').modal("hide");
+    
 }
 
 document.getElementById("edit-data").addEventListener("click", function(){
-    editData()
+    
+    editData(row)
 })
    
