@@ -6,7 +6,7 @@ var row
 
 function buildTable(){
     $(document).ready(function(){
-        $('#example').DataTable( {
+        var table = $('#example').DataTable( {
             dom: 'frtipB',
             buttons: {
                 buttons: [
@@ -49,7 +49,6 @@ function buildTable(){
         //fx to populate edit form with current data
         $('#example tbody').on('click', '.edit', function () {
             var table = $('#example').DataTable();
-
             var elements = document.getElementById("#edit-form").elements;
             let valsa = table.row( $(this).parents('tr') ).data()
             let rowIndex = (table.row( $(this).parents('tr') )[0]);

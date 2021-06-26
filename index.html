@@ -14,41 +14,34 @@
 <title>Document</title>
 </head>
 <body>
+    
     <table id="example" class="display" width="100%"></table>
-
     
-
-   
         
-    
     <!-- add-row modal (could change to use same modal for both operations on conditional in future, but nah)-->
     <div class="modal fade" id="DescModalAdd" role="dialog">
         <div class="modal-dialog">
             <div class="modal-content">
                 <div class="modal-header">
                     <button type="button" class="close" data-dismiss="modal" aria-hidden="true">�</button>
-                     <h3 class="modal-title">Editing Row Data</h3>
+                     <h3 class="modal-title">Add Data</h3>
     
                 </div>
                 <div class="modal-body">
                     <h2>Create</h2>
 
                 <form id= "#add-form">
-                <label for="name">Name:</label><br>
-                <input type="text" id="name" name="name" value="Name"><br>
-                <label for="position">Position:</label><br>
-                <input type="text" id="Position" name="position" value="Position"><br><br>
-                <label for="office">Office:</label><br>
-                <input type="text" id="office" name="office" value="Office"><br>
-                <label for="extn">Extn:</label><br>
-                <input type="text" id="extn" name="extn" value="Extn"><br><br>
-                <label for="start-date">Start date:</label><br>
-                <input type="text" id="start-date" name="start-date" value="Start date"><br>
-                <label for="salary">Salary:</label><br>
-                <input type="text" id="salary" name="salary" value="Salary"><br><br>
+                <label for="title">Title:</label><br>
+                <input type="text" id="title" name="title" value="Title"><br>
+                <label for="summary">Summary:</label><br>
+                <input type="text" id="summary" name="summary" value="Summary"><br><br>
+                <label for="origin">Origin:</label><br>
+                <input type="text" id="origin" name="origin" value="Origin"><br>
+                <label for="date">Date Published:</label><br>
+                <input type="text" id="date" name="date" value="Date"><br><br>
+                <label for="image">Image:</label><br>
+                <input type="text" id="image" name="image" value="Image"><br>
                 
-                 
-    
                 </div>
                 <div class="modal-footer">
                     <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
@@ -72,26 +65,24 @@
         
                     </div>
                     <div class="modal-body">
-                        <form id="#edit-form"> 
-                            <label for="name">Name:</label><br>
-                            <input type="text" id="name1" name="name" value="Name"><br>
-                            <label for="position">Position:</label><br>
-                            <input type="text" id="position1" name="position" value="Position"><br><br>
-                            <label for="office">Office:</label><br>
-                            <input type="text" id="office1" name="office" value="Office"><br>
-                            <label for="extn">Extn:</label><br>
-                            <input type="text" id="extn1" name="extn" value="Extn"><br><br>
-                            <label for="start-date">Start date:</label><br>
-                            <input type="text" id="start-date1" name="start-date" value="Start date"><br>
-                            <label for="salary">Salary:</label><br>
-                            <input type="text" id="salary1" name="salary" value="Salary"><br><br>
-                        </form> 
-        
+                        <form id="#edit-form">
+                            <label for="title">Title:</label><br>
+                            <input type="text" id="title1" name="title" value="Title"><br>
+                            <label for="summary">Summary:</label><br>
+                            <input type="text" id="summary1" name="summary" value="Summary"><br><br>
+                            <label for="origin">Origin:</label><br>
+                            <input type="text" id="origin1" name="origin" value="Origin"><br>
+                            <label for="date">Date Published:</label><br>
+                            <input type="text" id="date1" name="date" value="Date"><br><br>
+                            <label for="image">Image:</label><br>
+                            <input type="text" id="image1" name="image" value="Image"><br>
                     </div>
                     <div class="modal-footer">
                         <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
                         <button type="button" id="edit-data" class="btn btn-primary edit-row" >Save changes</button>
                     </div>
+                    
+                    </form>
                 </div>
                 <!-- /.modal-content -->
             </div>
@@ -106,9 +97,9 @@
     
     <script type="text/javascript" charset="utf8" src="https://cdn.datatables.net/1.10.25/js/jquery.dataTables.js"></script>
     <script type="text/javascript" charset="utf8" src="https://cdn.datatables.net/1.10.25/js/dataTables.bootstrap.min.js"></script>
-    
+    <script type="text/javascript" src="scripts\datatest.js"></script>
     <script type="text/javascript" src="scripts\dataSet.js"></script>
-    <script type="text/javascript" src="scripts\main.js"></script>
+    <!-- <script type="text/javascript" src="scripts\main.js"></script> -->
     <script type="text/javascript" src="https://cdn.datatables.net/responsive/2.2.9/js/dataTables.responsive.min.js"></script>
     <script type="text/javascript" src="https://cdn.datatables.net/responsive/2.2.9/js/responsive.bootstrap.min.js"></script>
     
