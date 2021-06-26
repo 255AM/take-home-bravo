@@ -1,7 +1,8 @@
 //initialize tables| defining column titless and pointing to dataSet as data source
 function buildTable(){
-    $(document).ready(function() {
+    $(document).ready(function(){
     $('#example').DataTable( {
+        select: true,
         data: dataSet,
         columns: [
             { title: "Name"},
@@ -12,11 +13,18 @@ function buildTable(){
             { title: "Salary" },
             {
                 "data": null,
-                "defaultContent": "<button>Edit</button> <button>Delete</button>"
-              }
+                "defaultContent": '<button>Edit</button> <button class="remove">Delete</button>'
+              },
         ]
     } );
-} );
+    $('#example').on('click', '.remove', function () {
+		var table = $('#example').DataTable();
+		table
+			.row($(this).parents('tr'))
+			.remove()
+		.draw();
+		});
+    } );
 
 }
 //initial table build on load
