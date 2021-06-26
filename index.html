@@ -11,59 +11,93 @@
     <link rel="stylesheet" type="text/css" href="https://cdn.datatables.net/1.10.25/css/dataTables.bootstrap.min.css">
     <link rel="stylesheet" type="text/css" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
     
-
-
-    
-
-
-
-    <title>Document</title>
+<title>Document</title>
 </head>
 <body>
     <table id="example" class="display" width="100%"></table>
 
     <article class="ui">
 
-        <h2>Edit</h2>
-
-        <form id="#edit-form"> 
-            <label for="name">Name:</label><br>
-            <input type="text" id="name1" name="name" value="Name"><br>
-            <label for="position">Position:</label><br>
-            <input type="text" id="Position1" name="position" value="Position"><br><br>
-            <label for="office">Office:</label><br>
-            <input type="text" id="office1" name="office" value="Office"><br>
-            <label for="extn">Extn:</label><br>
-            <input type="text" id="extn1" name="extn" value="Extn"><br><br>
-            <label for="start-date">Start date:</label><br>
-            <input type="text" id="start-date1" name="start-date" value="Start date"><br>
-            <label for="salary">Salary:</label><br>
-            <input type="text" id="salary1" name="salary" value="Salary"><br><br>
-            <input type="submit" id="edit-row" value="Submit">
-        
-        </form> 
-
-        <h2>Create</h2>
-
-        <form>
-        <label for="name">Name:</label><br>
-        <input type="text" id="name" name="name" value="Name"><br>
-        <label for="position">Position:</label><br>
-        <input type="text" id="Position" name="position" value="Position"><br><br>
-        <label for="office">Office:</label><br>
-        <input type="text" id="office" name="office" value="Office"><br>
-        <label for="extn">Extn:</label><br>
-        <input type="text" id="extn" name="extn" value="Extn"><br><br>
-        <label for="start-date">Start date:</label><br>
-        <input type="text" id="start-date" name="start-date" value="Start date"><br>
-        <label for="salary">Salary:</label><br>
-        <input type="text" id="salary" name="salary" value="Salary"><br><br>
-        <input type="submit" id="add-row" value="Submit">
-        </form> 
+        <button class="add">Add Data</button>    
 
         
-
     </article>
+    <!-- add-row modal (could change to use same modal for both operations on conditional in future, but nah)-->
+    <div class="modal fade" id="DescModalAdd" role="dialog">
+        <div class="modal-dialog">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <button type="button" class="close" data-dismiss="modal" aria-hidden="true">�</button>
+                     <h3 class="modal-title">Editing Row Data</h3>
+    
+                </div>
+                <div class="modal-body">
+                    <h2>Create</h2>
+
+                <form id= "#add-row">
+                <label for="name">Name:</label><br>
+                <input type="text" id="name" name="name" value="Name"><br>
+                <label for="position">Position:</label><br>
+                <input type="text" id="Position" name="position" value="Position"><br><br>
+                <label for="office">Office:</label><br>
+                <input type="text" id="office" name="office" value="Office"><br>
+                <label for="extn">Extn:</label><br>
+                <input type="text" id="extn" name="extn" value="Extn"><br><br>
+                <label for="start-date">Start date:</label><br>
+                <input type="text" id="start-date" name="start-date" value="Start date"><br>
+                <label for="salary">Salary:</label><br>
+                <input type="text" id="salary" name="salary" value="Salary"><br><br>
+                <input type="submit" id="add-row" value="Submit">
+                </form> 
+    
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+                    <button type="button" class="btn btn-primary add-row" >Save changes</button>
+                </div>
+            </div>
+            <!-- /.modal-content -->
+        </div>
+        <!-- /.modal-dialog -->
+    </div>
+    <!-- /.modal -->
+
+    <!-- edit row modal (could change to use same modal for both on conditional in future, but nah)-->
+    <div class="modal fade" id="DescModalEdit" role="dialog">
+        <div class="modal-dialog">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <button type="button" class="close" data-dismiss="modal" aria-hidden="true">�</button>
+                     <h3 class="modal-title">Editing Row Data</h3>
+    
+                </div>
+                <div class="modal-body">
+                    <form id="#edit-form"> 
+                        <label for="name">Name:</label><br>
+                        <input type="text" id="name1" name="name" value="Name"><br>
+                        <label for="position">Position:</label><br>
+                        <input type="text" id="Position1" name="position" value="Position"><br><br>
+                        <label for="office">Office:</label><br>
+                        <input type="text" id="office1" name="office" value="Office"><br>
+                        <label for="extn">Extn:</label><br>
+                        <input type="text" id="extn1" name="extn" value="Extn"><br><br>
+                        <label for="start-date">Start date:</label><br>
+                        <input type="text" id="start-date1" name="start-date" value="Start date"><br>
+                        <label for="salary">Salary:</label><br>
+                        <input type="text" id="salary1" name="salary" value="Salary"><br><br>
+                    </form> 
+    
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+                    <button type="button" class="btn btn-primary edit-row" >Save changes</button>
+                </div>
+            </div>
+            <!-- /.modal-content -->
+        </div>
+        <!-- /.modal-dialog -->
+    </div>
+    <!-- /.modal -->
     
     
     
@@ -81,16 +115,5 @@
     
     <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/jszip/3.1.3/jszip.min.js"></script>
     <script type="text/javascript" src="https://cdn.datatables.net/buttons/1.7.1/js/dataTables.buttons.min.js"></script>
-
-    
-
-
-
-
-
-
-    
-    
-
 </body>
 </html>

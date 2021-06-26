@@ -35,11 +35,14 @@ function buildTable(){
                 }
             })
     });
-    
+        $('#example').on('click', '.edit', function () {
+            $('#DescModalEdit').modal("show");
+        });
 
-    
-    
-
+        $('#example').on('click', '.add', function () {
+            $('#DescModalAdd').modal("show");
+            console.log('gttgtgt');
+        });
 }
 //initial table build on load
 buildTable()
