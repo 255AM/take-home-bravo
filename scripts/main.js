@@ -2,6 +2,19 @@
 function buildTable(){
     $(document).ready(function(){
         $('#example').DataTable( {
+            dom: 'frtipB',
+            buttons: {
+                buttons: [
+                    {
+                        text: 'Alert',
+                        action: function ( e, dt, node, config ) {
+                            $('#DescModalAdd').modal("show");
+                            console.log('gttgtgt');
+                        }
+                    }
+                ]
+            },
+            
             select: true,
             data: dataSet,
             columns: [
@@ -17,6 +30,7 @@ function buildTable(){
                 },
             ]
         } );
+        //fx to delete row
         $('#example').on('click', '.remove', function () {
             var table = $('#example').DataTable();
             table
@@ -24,43 +38,52 @@ function buildTable(){
                 .remove()
             .draw();
             });
-            $('#example tbody').on('click', '.edit', function () {
-                var table = $('#example').DataTable();
+        //fx to populate edit form with current data
+        $('#example tbody').on('click', '.edit', function () {
+            var table = $('#example').DataTable();
 
-                var elements = document.getElementById("#edit-form").elements;
-                let valsa = table.row( $(this).parents('tr') ).data()
-                    
-                for (var i = 0; i<5 ; i++) {
-                    elements[i].value = valsa[i] 
-                }
-            })
+            var elements = document.getElementById("#edit-form").elements;
+            let valsa = table.row( $(this).parents('tr') ).data()
+                
+            for (var i = 0; i<6 ; i++) {
+                elements[i].value = valsa[i] 
+            }
+        })
+        
+           
+              
     });
-        $('#example').on('click', '.edit', function () {
-            $('#DescModalEdit').modal("show");
-        });
 
-        $('#example').on('click', '.add', function () {
-            $('#DescModalAdd').modal("show");
-            console.log('gttgtgt');
-        });
+    $('#example').on('click', 'dt-button', function () {
+        $('#DescModalAdd').modal("show");
+        console.log('gttgtgt');
+    });
+    $('#example').on('click', '.edit', function () {
+        $('#DescModalEdit').modal("show");
+    });
+
+        
 }
 //initial table build on load
 buildTable()
 function resetTable(){
-    //Destroy and rebuild the Datatable after source data changes
+    //Destroy and rebuild the Datatable after source data changes|| I think there is a built in method to do this, for future reference
     $('#example').DataTable().clear().destroy();
     buildTable()
 }
 //listen for add button to add data to table
-document.getElementById("add-row").addEventListener("click", saveArticle);
+document.getElementById("add-row").addEventListener("click", function(){
+    addData()
+})
 
-function saveArticle () {
-    dataSet.push([ "toe toe Nixon", "System Architect", "Edinburgh", "5421", "2011/04/25", "$320,800" ])
-    console.log('here');
+function addData() {
+    let inputArray = [];
+    var elements = document.getElementById("#add-form").elements;
+    for (var i = 0; i<6 ; i++) {
+        inputArray.push(elements[i].value)
+    }
+    dataSet.push(inputArray)
     resetTable()
-    console.log(dataSet);
 };
 
 
-
-  

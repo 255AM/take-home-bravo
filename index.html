@@ -16,12 +16,11 @@
 <body>
     <table id="example" class="display" width="100%"></table>
 
-    <article class="ui">
+    
 
-        <button class="add">Add Data</button>    
-
+   
         
-    </article>
+    
     <!-- add-row modal (could change to use same modal for both operations on conditional in future, but nah)-->
     <div class="modal fade" id="DescModalAdd" role="dialog">
         <div class="modal-dialog">
@@ -34,7 +33,7 @@
                 <div class="modal-body">
                     <h2>Create</h2>
 
-                <form id= "#add-row">
+                <form id= "#add-form">
                 <label for="name">Name:</label><br>
                 <input type="text" id="name" name="name" value="Name"><br>
                 <label for="position">Position:</label><br>
@@ -47,14 +46,15 @@
                 <input type="text" id="start-date" name="start-date" value="Start date"><br>
                 <label for="salary">Salary:</label><br>
                 <input type="text" id="salary" name="salary" value="Salary"><br><br>
-                <input type="submit" id="add-row" value="Submit">
-                </form> 
+                
+                 
     
                 </div>
                 <div class="modal-footer">
                     <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
-                    <button type="button" class="btn btn-primary add-row" >Save changes</button>
+                    <button type="button" id="add-row" class="btn btn-primary add-row" >Save changes</button>
                 </div>
+                </form>
             </div>
             <!-- /.modal-content -->
         </div>
