@@ -1,0 +1,31 @@
+header{
+    background-color: rgb(221, 216, 216);
+    padding:1rem;
+}
+h1{
+    text-align: center;
+}
+
+.sorting_1{
+background-color: rgb(210, 247, 247) !important;
+}
+
+.add-button{
+    margin-left:5rem;
+    margin-top:1rem;
+}
+
+.dataTables_length {
+    margin-left:5rem;
+    margin-top: 2rem;
+}
+
+div.dataTables_filter label {
+    margin-right: 5rem;
+    margin-top: 2rem;
+}
+
+.dataTables_wrapper {
+    margin-left: 5rem;
+    margin-right: 5rem;
+}
