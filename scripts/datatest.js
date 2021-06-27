@@ -6,26 +6,31 @@ function buildTable(){
     $(document).ready(function () {
         
             var table = $('#example').DataTable({
-                dom: 'frtipB',
-            buttons: {
+                paging: true,
+                dom: 'lftBp',
+                
+            
                 buttons: [
                     {
                         text: 'Add Data',
                         action: function ( e, dt, node, config ) {
                             $('#DescModalAdd').modal("show");
                             console.log('gttgtgt');
-                        }
-                    }
-                ]
-            },
-            select: true,
+                        },
+                        dom: 'frtipB',
+                    },
+                    
+                ],
+            
+            
             
                 columns: [
-                    { "data": "title" },
-                    {"data": "summary" },
-                    { "data": "newsSite" },
-                    { "data": "publishedAt" },
-                    { "data": "imageUrl" },
+                    { "title": "Title" , "data": "title" },
+                    
+                    {"title": "Summary" ,"data": "summary" },
+                    {"title": "Origin" , "data": "newsSite" },
+                    {"title": "Published" , "data": "publishedAt" },
+                    {"title": "Image" , "data": "imageUrl" },
                     {
                         sortable: false,
                         "render": function ( data, type, full, meta ) {
@@ -148,7 +153,7 @@ function editData(row){
         table.row( row ).data( newData ).draw();
                 
 
-    
+                
     $('#DescModalEdit').modal("hide");
     
 }
