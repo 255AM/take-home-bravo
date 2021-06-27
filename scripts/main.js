@@ -138,7 +138,9 @@
             
         });
     }
-
+    //in future, refactor to call and render accordingly from edit and add buttons
+    
+    
     //listen for add button to add data to table
     document.getElementById("add-row").addEventListener("click", function(){
         editData(row='z')
