@@ -8,8 +8,6 @@ function buildTable(){
             var table = $('#example').DataTable({
                 paging: true,
                 dom: 'lftBp',
-                
-            
                 buttons: [
                     {
                         text: 'Add Data',
@@ -30,7 +28,11 @@ function buildTable(){
                     {"title": "Summary" ,"data": "summary" },
                     {"title": "Origin" , "data": "newsSite" },
                     {"title": "Published" , "data": "publishedAt" },
-                    {"title": "Image" , "data": "imageUrl" },
+                    {"title": "Image" , "data": "imageUrl",
+                    "render": function(data, type, row) {
+                        return '<img src="'+data+'"height="100"  />';
+                    }
+                    },
                     {
                         sortable: false,
                         "render": function ( data, type, full, meta ) {
