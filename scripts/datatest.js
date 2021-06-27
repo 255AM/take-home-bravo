@@ -1,11 +1,15 @@
 var row
-
+let theDate = "publishedAt"
 
 buildTable()
 function buildTable(){
     $(document).ready(function () {
         
             var table = $('#example').DataTable({
+                scrollY: '75vh',
+                scrollCollapse: true,
+                
+        
                 paging: true,
                 dom: 'lftBp',
                 buttons: [
@@ -19,18 +23,45 @@ function buildTable(){
                     },
                     
                 ],
-            
-            
-            
+                columnDefs: 
+                [ 
+                    {
+                        targets:3,
+                        "render" : function (data, type, row) 
+                        {
+                            return new Date(data).toLocaleDateString()
+                        },
+                    },
+                    { 
+                        className: "dt-body-center", targets: [4,3,2,5] 
+                 },
+                    // { 
+                    //     className: "dt-body-center", targets: 3 
+                    // },
+                    // { 
+                    //     className: "dt-body-center", targets: 2 
+                    // },
+                    // { 
+                    //     className: "dt-body-center", targets: 5 
+                    // },
+                    // { 
+                    //     className: "dt-head-center", targets: "_all" 
+                    // } 
+                
+                    { 
+                        "width": "6%", "targets": 5 
+                    }
+                  
+                ],
+                  
                 columns: [
                     { "title": "Title" , "data": "title" },
-                    
                     {"title": "Summary" ,"data": "summary" },
                     {"title": "Origin" , "data": "newsSite" },
-                    {"title": "Published" , "data": "publishedAt" },
+                    {"title": "Published" , "data": "publishedAt"},
                     {"title": "Image" , "data": "imageUrl",
                     "render": function(data, type, row) {
-                        return '<img src="'+data+'"height="100"  />';
+                        return '<img src="'+data+'"width="200"  />';
                     }
                     },
                     {
@@ -84,7 +115,7 @@ function buildTable(){
 
             for (var index = 1; index < 2; index++) {
                 $.ajax({
-                    url: 'https://api.spaceflightnewsapi.net/v3/articles?_limit=20',
+                    url: 'https://api.spaceflightnewsapi.net/v3/articles?_limit=10',
                     dataType: 'json',
                     success: function (json) {
                         console.log(json);

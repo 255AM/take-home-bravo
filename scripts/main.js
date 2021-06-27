@@ -8,6 +8,7 @@ function buildTable(){
     $(document).ready(function(){
         var table = $('#example').DataTable( {
             dom: 'frtipB',
+            
             buttons: {
                 buttons: [
                     {
