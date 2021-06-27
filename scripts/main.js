@@ -104,7 +104,6 @@
                 var table = $('#example').DataTable();
                 var elements = document.getElementById("#edit-form").elements;
                 let valsa = table.row( $(this).parents('tr') ).data(); 
-                let rowIndex = (table.row( $(this).parents('tr') )[0]);
                 row = $(this).attr('id')
                 //row data holds all data from api call, not just visible. Have to identify which data to bind fro each form element
                 elements[0].value = valsa.title
@@ -114,7 +113,7 @@
                 elements[4].value = valsa.imageUrl
             })
 
-            //listen for addrow click to show adddata form modal
+            //listen for add-row click to show addata form modal
             $('#example').on('click', 'dt-button', function () {
                 $('#DescModalAdd').modal("show");
                 console.log('gttgtgt');
@@ -124,7 +123,7 @@
                 $('#DescModalEdit').modal("show");
             });
 
-            //for loop not currently used, run itereaton only once
+            //for loop not currently used, iterate only once
             for (var index = 1; index < 2; index++) {
                 $.ajax({
                     //article return limit in url
@@ -138,44 +137,24 @@
             }
             
         });
-}
+    }
 
-// function resetTable(){
-//     //Destroy and rebuild the Datatable after source data changes|| I think there is a built in method to do this, for future reference
-//     $('#example').DataTable().clear().destroy();
-//     buildTable()
-// }
-
-//listen for add button to add data to table
+    //listen for add button to add data to table
     document.getElementById("add-row").addEventListener("click", function(){
-        Add()
+        editData(row='z')
     })
+    
+    //refactored edit/add into a single fx
+    function addEditData(row){
+        let form
+        //if sent here from add modal, row will equal z triggering add portion, if sent from edit modal rowid will be valid triggering edit portion
+        row == 'z'?
+        form = document.getElementById("#add-form").elements
+        :
+        form = document.getElementById("#edit-form").elements
 
-    function Add(){
         var table = $('#example').DataTable();
         
-        let form = document.getElementById("#add-form").elements;
-        //bind modal form values to variables
-        let title = form[0].value
-        let summary = form[1].value
-        let origin = form[2].value
-        let date = form[3].value
-        let image = form[4].value
-        //add to table, has to reference the data as its defined in the api return data.
-        table.row.add( {
-            "title":      title,
-            "summary":   summary,
-            "newsSite":    origin,
-            "publishedAt": date,
-            "imageUrl":     image,
-        } ).draw();
-        $('#DescModalAdd').modal("hide");
-    }
-    
-    function editData(row){
-
-        var table = $('#example').DataTable();
-        let form = document.getElementById("#edit-form").elements;
         let title = form[0].value
         let summary = form[1].value
         let origin = form[2].value
@@ -189,8 +168,14 @@
             "publishedAt": date,
             "imageUrl":     image,
             }
-        table.row( row ).data( newData ).draw();
-        $('#DescModalEdit').modal("hide");
+
+        row == 'z' ?
+        (table.row.add(newData).draw(),
+        document.forms["#add-form"].reset(),
+        $('#DescModalAdd').modal("hide"))
+        :
+        (table.row( row ).data( newData ).draw(),
+        $('#DescModalEdit').modal("hide"))
     }
 
     document.getElementById("edit-data").addEventListener("click", function(){

@@ -1,4 +1,5 @@
 //static datatable to poulate table. will add crud capability, followed by an attempt to access real world data without server side architecture
+//this file is only used if using static table found in datatests.js
 
 var dataSet = [
     [ "Tiger Nixon", "System Architect", "Edinburgh", "5421", "2011/04/25", "$320,800"],
