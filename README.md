@@ -10,3 +10,5 @@ The application should provide an UI for the user to update/add/delete the data 
 Once completed, please send a URL to the GitHub repo and URL to the webpage. Be creative!"
 
 This project meets all of the requirements listed. The project also brings in Real world data via AJAX, displays and allows for manipulation of that data, without any kind of serverside architecture.
+
+The application is unstable on mobile devices and small screens.
